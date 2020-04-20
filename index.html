@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>JS Class</title>
+        <script>
+
+            //Variable
+            var myName='Varma'; //string
+            console.log("Welcome to " + myName)
+
+            var age=46; //number
+            var isStudent=false; //boolean
+
+            //How to find type of value contained by variable
+
+            //typeof
+
+            console.log(typeof(myName))
+
+            age="Fourty Six";
+
+            //alert(myName);
+
+            var x; //Undefined
+
+            age=null;
+
+            //Arrays
+            var myNumbers=["one","two","three"];
+            
+            //Object
+            var student={
+                name:"Varma",
+                age:46,
+                isStudent:false,
+                "college name":"JNTU",
+                1:"one"
+            }
+
+
+            //Conditional Statements
+
+            var color="red";
+
+            if(color=="red"){
+                console.log("Color is red");
+            }
+            else if(color=="black"){
+                console.log("Color is black")
+            }
+            else if(color=="green"){
+                console.log("Color is green")
+            }
+            else {
+                console.log("Color is unknown")
+            }
+
+            var a=2; //Undefined
+
+            if(a){
+
+            }
+            else
+            {
+
+            }
+
+            //Logical OR
+            if((color=="red") || (color=="green")){
+                console.log("Rainbow Colors")
+            }
+
+            //Logical NOT
+            if(!(color=="red")){
+                console.log("Color is not red")
+            }
+
+            //ternary
+            (color=="red") ? console.log("Color is red ") : console.log("Color is not red")
+
+            //switch
+            switch(color){
+                case "red":
+                    console.log("Color is red");
+                    break;
+                case "black":
+                    console.log("Color is red");
+                    break;
+                default:
+                    console.log("Color is unknown");
+            }
+            
+            
+
+
+        </script>
+        <script src="class.js"></script>
+    </head>
+    <body>
+        <h1>Welcome to JS Class</h1>
+    </body>
+</html>
