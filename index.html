@@ -24,8 +24,6 @@
 
             age=null;
 
-            //Arrays
-            var myNumbers=["one","two","three"];
             
             //Object
             var student={
@@ -89,7 +87,229 @@
                     console.log("Color is unknown");
             }
             
+            //Loops
+
+            //while
+            var a=0;
+            while(a<=10){
+                console.log(a);
+                a++;
+            }
+
+            //do .. while
+            var b=0;
+            do {
+                console.log(b);
+                b++;
+            }
+            while(b<=10)
+
+            //for loop
+            for(var c=0;c<=10;c++){
+                console.log(c);
+            }
+
+            //Interrupt the loop
+            // break;
+
+            //Continue the loop
+            // continue;
+
+            //Math
+
+            //Math.round, ceil, floor, random functions
+
+            //Functions
+
+            var total=add(3,2);
+            console.log(total);
+
+            //Function declaration  //JavaScript Hoisting
+            function add(a,b){
+                return a+b;
+            }
+
+            //Function expressions
+            var sum=function(a,b){
+                return a+b;
+            }
+            console.log(sum(4,5));
+
+            var logInfo=function(i){
+                console.log(i)
+            }
+
+            var logError=function(i){
+                console.error(i)
+            }
+
+            var log=function(cb,i){
+                cb(i);
+            }
+
+            log(logInfo,"Test info");
+
+            //Functions are first class data types
+            //Can be passed as argument to another function
+            //Can be returned from function as return value
+
+            //Arrays
+            var myNumbers=["one","two","three"];
             
+            //Positions are zero based i.e index start with 0 for first value and so on..
+            //length - count of values
+            console.log(myNumbers.length)
+
+            //Array methods
+
+            //Mutator (change) methods
+            myNumbers.push("four"); //Add item at the end
+            myNumbers.unshift("zero"); //Add item at the beginning
+            myNumbers.pop(); //removes last item from array
+            myNumbers.shift(); //remove from beginning
+
+            var myFruits=["orange","apple","mango","banana"];
+
+            var myLetters=["a","b","c"];
+
+            //forEach
+            myLetters.forEach(function(value,position){
+                console.log(value + " at " + position);
+            })
+
+            var ages=[32,25,10,18];
+
+            var isAllAdults=ages.every(function(age){
+                return age>=18;
+            })
+
+            console.log(isAllAdults);
+
+            var numbers=[1,2,3];
+
+            var total=numbers.reduce(function(total,number){
+                return total + number;
+            })
+
+            var a=[1,2,3];
+            var b=[4,5,6];
+
+            var c=a.concat(b);
+
+            var d=a.reverse();
+
+            var movies=[
+                {
+                    id:1,
+                    title:"Bahubali",
+                    actor:"Prabhas",
+                    revenue:300,
+                    theaters:["A","B"]
+                },
+                {
+                    id:2,
+                    title:"Adhurs",
+                    actor:"NTR",
+                    revenue:45,
+                    theaters:["B","C"]
+                },
+                {
+                    id:3,
+                    title:"Kushi",
+                    actor:"Pavan",
+                    revenue:15,
+                    theaters:["C","D"]
+                }
+            ]
+
+            //every, some, map, filter, reduce
+
+            //1. Is any movie crossed 100cr revenue?
+            var isAny100=movies.some(function(movie){
+                return movie.revenue>=100;
+            })
+            console.log(isAny100);
+
+            //2. Is all movies crossed 50cr revenue?
+            var isAll50=movies.every(function(movie){
+                return movie.revenue>=50;
+            })
+
+            console.log(isAll50)
+
+            //3. I want list of all movies released in theater B
+            var bMovies=movies.filter(function(movie){
+                return movie.theaters.indexOf("B")!=-1; //movie.theaters.includes("B")==true
+            })
+            console.log(bMovies);
+
+            //4. I want list of actors names only for all movies
+            // ["Prabhas","NTR","Pavan"]
+            var actors=movies.map(function(movie){
+                return movie.actor;
+            })
+            console.log(actors);
+
+            //5. I want total revenue of all movies
+            var totalRevenue=movies.reduce(function(total,movie){
+                return total+movie.revenue;
+            },0)
+
+            console.log(totalRevenue);
+
+            //6. I want comma seperated list of movies titles as one string
+            // "Bahubali,Adhurs,Kushi"
+
+            var titles=movies.reduce(function(titles,movie){
+                if(titles=="") return movie.title;
+                return titles + "," + movie.title;
+            },'')
+
+            console.log(titles);
+
+            //7. I want single object containing movie title as key and movie actor as value for all movies
+            /*
+                {
+                    "Bahubali":"Prabhas",
+                    "Adhurs":"NTR",
+                    "Kushi":"Pavan"
+                }
+            */
+
+            var titleActors=movies.reduce(function(titleActors,movie){
+                titleActors[movie.title]=movie.actor;
+                return titleActors;
+            },{});
+            console.log(titleActors);
+
+            //8. I want list of all theaters of all movies but with no duplicates
+            //["A","B","C","D"]
+            var theaters=movies.reduce(function(theaters,movie){
+                movie.theaters.forEach(function(theater){
+                    if(theaters.includes(theater)==false){
+                        theaters.push(theater)
+                    }
+                })
+
+                return theaters;
+            },[])
+
+            console.log(theaters);
+
+            movies.sort(function(a,b){
+                if(a.revelue>b.revenue) return 1;
+                if(a.revenue<b.revenue) return -1;
+                return false;
+            });
+
+            //{"movie":"Bahubali"},{"movie":"Adhurs"},{"movie":"Kushi"}
+
+            var allMovies=movies.map(function(movie){
+                return {movie:movie.title};
+            })
+
+            console.log(allMovies);
+
 
 
         </script>
