@@ -311,6 +311,104 @@
             console.log(allMovies);
 
 
+            var student={
+                name:"Varma",
+                age:46
+            }
+
+            //Objects
+
+            //Creating empty object
+            var user={};
+            var user=new Object();
+
+            //Adding Key Value Pairs
+            user.name="Varma";
+            user["age"]=46;
+            var keyName="college name";
+            user[keyName]="JNTU";
+
+            //Reading key values
+            console.log(user.name)
+            console.log(user["age"])
+            console.log(user[keyName])
+
+            //Deleting Key Value pair
+            delete user.age;
+            //delete user["age"]
+
+            //Check for existance of key
+        
+           // user.name=undefined;
+
+            //using undefinedness
+            if(user.name){
+
+            }
+
+            //using in operator for checking existance
+            if("name" in user){
+
+            }
+
+            //copying objects 
+            var person=user; //copy only reference
+            person.degree="BTech";
+
+            //Clone or deep copy
+            var teacher=Object.assign({},user); //clone
+            teacher.subject="JS";
+
+            //Merging more than one object
+            var professor=Object.assign({},user, teacher);
+
+            //To loop through object keys
+            for(var k in professor){
+                console.log(k)
+                console.log(professor[k])
+            }
+
+            var professorKeys=Object.keys(professor);
+            var professorValues=Object.values(professor);
+
+            //Nested Objects
+            var customer={
+                name:"varma",
+                address: {
+                    street:"MIG 27/1",
+                    city:"Hyderabad"
+                }
+            }
+
+            /*
+                customer.address.city
+                customer.address["city"]
+                customer["address"]["city"]
+            */
+
+            //Strings
+
+            var myName="Varma B";
+            console.log(myName.length) //includes whitespaces also in length
+
+            console.log(myName[0]);
+            console.log(myName.charAt(0));
+
+            //Strings are immutable
+            myName[0]="K";
+
+            console.log(myName.toUpperCase())
+            console.log(myName.toLowerCase())
+            
+            //Reverse string
+            //"varma".split("").reverse().join("")
+            
+            //Replace
+
+            //"varma".replace("a","@")
+            //"varma".replace(/a/g,"@")
+
+            
 
         </script>
         <script src="class.js"></script>
